@@ -2,22 +2,14 @@ import { useState } from "react";
 import "./HomePage.scss";
 import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
-import { StarsRating } from "stars-rating-react-hooks";
 import { FaSearch, FaPhoneAlt, FaHospitalAlt, FaUserAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-
+import Star from "../../component/Star";
 function HomePage() {
   const { doctors, isLoading } = useDoctor();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selecting, setSelecting] = useState(null);
   // console.log(doctors);
 
-  const config = {
-    totalStars: 5,
-    initialSelectedValue: 4,
-    renderFull: "★",
-    renderEmpty: "☆",
-  };
   return (
     <>
       {" "}
@@ -71,17 +63,7 @@ function HomePage() {
                 <br />
                 {/* <h3>{selecting?.selectingValue}</h3> */}
                 <div className="card-footer">
-                  <StarsRating
-                    // onStarsRated={(value) => {
-                    //   alert(`${value} stars rated`);
-                    // }}
-                    onSelecting={(isSelecting, selectingValue) => {
-                      setSelecting({ isSelecting, selectingValue });
-                      // alert(`You just rated ${selectingValue} Stars!!`);
-                      // console.log(selectingValue, selecting);
-                    }}
-                    config={config}
-                  />
+                  <Star />
                   <button>
                     {" "}
                     <Link to={`/detail/${user.id}`}>READ MORE</Link>
