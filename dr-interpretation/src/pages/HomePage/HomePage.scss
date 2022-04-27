@@ -71,14 +71,26 @@ nav {
       }
     }
     button {
-      color: #fff;
       background-color: #c8aa8c;
       border: none;
       padding: 7px 15px;
       cursor: pointer;
-      //   border-radius: 10px;
       font-size: 12px;
+      transition: 700ms;
       margin-left: 25px;
+      a {
+        text-decoration: none;
+        transition: 700ms;
+        color: #fff;
+        &:hover {
+          color: #c8aa8c;
+        }
+      }
+      &:hover {
+        transform: scale(0.9);
+        box-shadow: 0 2px 5px #706f6f;
+        background-color: #000;
+      }
     }
   }
 }

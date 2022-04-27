@@ -11,7 +11,8 @@ function App() {
         <Routes>
           {" "}
           <Route path="/" element={<HomePage />} />
-          <Route path="detail/*" element={<DoctorDetailPage />} />
+          {/* <Route path="detail/*" element={<DoctorDetailPage />} /> */}
+          <Route path="/detail/:_id" element={<DoctorDetailPage />} />
         </Routes>
       </BrowserRouter>{" "}
     </DoctorProvider>

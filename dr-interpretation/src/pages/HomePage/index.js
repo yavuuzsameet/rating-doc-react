@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./HomePage.scss";
 import { useDoctor } from "../../context/DoctorContext";
-
+import { Link } from "react-router-dom";
 import { StarsRating } from "stars-rating-react-hooks";
 import { FaSearch, FaPhoneAlt, FaHospitalAlt, FaUserAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
@@ -10,7 +10,7 @@ function HomePage() {
   const { doctors, isLoading } = useDoctor();
   const [searchTerm, setSearchTerm] = useState("");
   const [selecting, setSelecting] = useState(null);
-  console.log(doctors);
+  // console.log(doctors);
 
   const config = {
     totalStars: 5,
@@ -19,11 +19,12 @@ function HomePage() {
     renderEmpty: "☆",
   };
   return (
-    <div>
+    <>
       {" "}
       {isLoading && <div>Loading...</div>}
       <nav>
         <h3>DOCTOR INTERPRETATION APP</h3>
+
         <div className="input-text">
           <FaSearch className="icon" />
           <input
@@ -77,17 +78,20 @@ function HomePage() {
                     onSelecting={(isSelecting, selectingValue) => {
                       setSelecting({ isSelecting, selectingValue });
                       // alert(`You just rated ${selectingValue} Stars!!`);
-                      console.log(selectingValue, selecting);
+                      // console.log(selectingValue, selecting);
                     }}
                     config={config}
                   />
-                  <button>READ MORE</button>
+                  <button>
+                    {" "}
+                    <Link to={`/detail/${user.id}`}>READ MORE</Link>
+                  </button>
                 </div>
               </div>
             </div>
           ))}
       </div>
-    </div>
+    </>
   );
 }
 
