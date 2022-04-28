@@ -53,10 +53,13 @@
     box-shadow: 0 1px 10px rgb(211, 209, 209);
     border-radius: 50%;
     position: absolute;
-    top: -15%;
+    top: -11%;
     cursor: pointer;
   }
-
+  .star {
+    margin-top: 80px;
+    transform: scale(1.5);
+  }
   h1 {
     color: #c8aa8c;
     font-size: 25px;
@@ -82,7 +85,10 @@
     img {
       width: 120px;
       height: 120px;
-      top: -7%;
+      top: -6%;
+    }
+    .star {
+      margin-top: 0;
     }
   }
 }
@@ -91,7 +97,10 @@
     img {
       width: 100px;
       height: 100px;
-      top: -4%;
+      top: -3%;
+    }
+    .star {
+      margin-top: 0;
     }
   }
 }

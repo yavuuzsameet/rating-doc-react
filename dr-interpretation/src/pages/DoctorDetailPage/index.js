@@ -2,6 +2,7 @@ import "./DoctorDetailPage.scss";
 import { useParams } from "react-router-dom";
 import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
+import { Star } from "../../component/Star";
 function DetailPage() {
   const { _id } = useParams();
   const { doctors } = useDoctor();
@@ -11,17 +12,17 @@ function DetailPage() {
       <div className="container">
         {/* <h1>Detail Page {_id}</h1> */}
         <div className="sub-container">
-          {" "}
           <center>
-            {" "}
             <img
               src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=150"
               alt=""
             />
-          </center>{" "}
+          </center>
+          <div className="star">
+            <Star />
+          </div>
           <h1>ABOUT</h1>
           <p>
-            {" "}
             <span>Name:</span> {doctorInfo.name}
           </p>
           <p>

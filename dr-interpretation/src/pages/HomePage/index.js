@@ -4,7 +4,7 @@ import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
 import { FaSearch, FaPhoneAlt, FaHospitalAlt, FaUserAlt } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
-import Star from "../../component/Star";
+import { Star } from "../../component/Star";
 function HomePage() {
   const { doctors, isLoading } = useDoctor();
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +12,6 @@ function HomePage() {
 
   return (
     <>
-      {" "}
       {isLoading && <div>Loading...</div>}
       <nav>
         <h3>DOCTOR INTERPRETATION APP</h3>
@@ -39,7 +38,7 @@ function HomePage() {
               return user;
             }
           })
-          .map((user) => (
+          .map((user, index) => (
             <div key={user.id} className="card">
               <img
                 src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=150"
@@ -63,9 +62,8 @@ function HomePage() {
                 <br />
                 {/* <h3>{selecting?.selectingValue}</h3> */}
                 <div className="card-footer">
-                  <Star />
+                  <Star userId={index} />
                   <button>
-                    {" "}
                     <Link to={`/detail/${user.id}`}>READ MORE</Link>
                   </button>
                 </div>
