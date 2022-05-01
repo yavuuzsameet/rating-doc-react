@@ -1,6 +1,6 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import {HomePage} from "./pages/HomePage";
 import DoctorDetailPage from "./pages/DoctorDetailPage";
 import { DoctorProvider } from "./context/DoctorContext";
 
@@ -9,12 +9,11 @@ function App() {
     <DoctorProvider>
       <BrowserRouter>
         <Routes>
-          {" "}
+     
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="detail/*" element={<DoctorDetailPage />} /> */}
           <Route path="/detail/:_id" element={<DoctorDetailPage />} />
         </Routes>
-      </BrowserRouter>{" "}
+      </BrowserRouter>
     </DoctorProvider>
   );
 }

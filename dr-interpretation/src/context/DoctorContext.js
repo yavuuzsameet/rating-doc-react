@@ -4,48 +4,46 @@ const DoctorContext = createContext();
 
 export const DoctorProvider = ({ children }) => {
   const [doctors, setDoctors] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [userStar, setUserStar] = useState([
-    {
-      id: 1,
-      starValue: 5,
-    },
-  ]);
+  const [fetchDoctorIsLoading, setFetchDoctorIsLoading] = useState(false);
+  const [doctorRating, setDoctorRating] = useState([]);
+ 
 
   useEffect(() => {
-    axios("https://jsonplaceholder.typicode.com/users")
-      .then((res) => setDoctors(res.data))
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false));
+    getDoctorsList();
   }, []);
 
-  const saveStarWithId = (id, starValue) => {
-    const findUser = userStar.find((item) => item.id === id);
-    if (!findUser) {
-      setUserStar([...userStar, { id: id, starValue: starValue }]);
-    } else {
-      if (starValue !== findUser.starValue) {
-        const changeObject = {
-          ...findUser,
-          starValue: starValue,
-        };
-
-        const createArray = {
-          ...userStar.slice(0, findUser.id),
-          changeObject,
-          ...userStar.slice(findUser.id + 1),
-        };
-
-        console.log(createArray);
-      }
+  const getDoctorsList = async() => {
+    try{
+      setFetchDoctorIsLoading(true);
+      await axios('https://jsonplaceholder.typicode.com/users').then(response => {
+          if(response){
+            setDoctors(response.data);
+            setFetchDoctorIsLoading(false);
+          }
+      })
+    } catch (e) {
+      console.log(e);
     }
-  };
+  }
+
+
+  const saveDoctorStarRating = async(doctorId,ratedValue) => {
+      await setDoctorRating([...doctorRating, {id:doctorId,ratedValue:ratedValue}])
+  }
+
+
+  const getRatingByDoctor = (doctorId) => {
+    return doctorRating.find(item => item.id === doctorId )
+  }
+
+
 
   const values = {
     doctors,
-    isLoading,
-    userStar,
-    saveStarWithId,
+    fetchDoctorIsLoading,
+    saveDoctorStarRating,
+    getRatingByDoctor,
+    doctorRating
   };
   return (
     <DoctorContext.Provider value={values}>{children}</DoctorContext.Provider>
