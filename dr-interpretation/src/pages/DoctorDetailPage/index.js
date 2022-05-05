@@ -74,7 +74,7 @@ function DetailPage() {
         <br />
       </div>
       <button>
-        <Link to={"/"}>All Doctors</Link>
+        <Link to={"/home"}>All Doctors</Link>
       </button>
     </div>
   );

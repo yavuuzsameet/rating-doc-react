@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import DoctorDetailPage from "./pages/DoctorDetailPage";
 import { DoctorProvider } from "./context/DoctorContext";
 import LoginPage from "./pages/LoginPage";
+import NotFound from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/detail/:_id" element={<DoctorDetailPage />} />
+          <Route element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </DoctorProvider>
