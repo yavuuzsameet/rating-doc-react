@@ -15,7 +15,7 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/detail/:_id" element={<DoctorDetailPage />} />
-          <Route element={<NotFound />} />
+          <Route path="/notFound" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </DoctorProvider>
