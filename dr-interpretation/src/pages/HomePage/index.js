@@ -4,6 +4,7 @@ import { useDoctor } from "../../context/DoctorContext";
 import { CustomSearch } from "../../component/CustomSearch";
 import { CustomHeader } from "../../component/CustomHeader";
 import { Cards } from "../../component/Cards";
+
 export const HomePage = () => {
   const { doctors, fetchDoctorIsLoading } = useDoctor();
   const [textInput, setTextInput] = useState("");
