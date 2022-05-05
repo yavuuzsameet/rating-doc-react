@@ -2,11 +2,11 @@ import "./DoctorDetailPage.scss";
 import { useParams } from "react-router-dom";
 import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
-import { Star } from '../../component/Star';
+import { Star } from "../../component/Star";
 
 function DetailPage() {
   const { _id } = useParams();
-  const { doctors,getRatingByDoctor,saveDoctorStarRating } = useDoctor();
+  const { doctors, getRatingByDoctor, saveDoctorStarRating } = useDoctor();
   const doctorInfo = doctors[_id - 1];
   return (
     <div className="doctorDetail">
@@ -20,7 +20,16 @@ function DetailPage() {
             />
           </center>
           <div className="star">
-          <Star doctorId={_id} saveRatedByDoctor={saveDoctorStarRating} getRatingByDoctor={getRatingByDoctor} />
+            {/* <Star
+              doctorId={_id}
+              saveRatedByDoctor={saveDoctorStarRating}
+              getRatingByDoctor={getRatingByDoctor}
+            /> */}
+            <Star
+              doctorId={Number(_id)}
+              saveRatedByDoctor={saveDoctorStarRating}
+              getRatingByDoctor={getRatingByDoctor}
+            />
           </div>
           <h1>ABOUT</h1>
           <p>
@@ -35,7 +44,6 @@ function DetailPage() {
           {" "}
           <h1>SUMMARY</h1>
           <p style={{ padding: "0 50px" }}>
-        
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
