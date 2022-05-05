@@ -48,16 +48,6 @@ const LoginFormik = withFormik({
         password: Yup.string().required('Password is required')
     }),
 
-    // const requestOptions = {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify({ title: 'React POST Request Example' })
-    // };
-    // fetch('https://reqres.in/api/posts', requestOptions)
-    //     .then(response => response.json())
-    //     .then(data => this.setState({ postId: data.id }));
-
-
     handleSubmit: (values) => {
         const REST_API_URL = "http://127.0.0.1:8000/core/login";
 
