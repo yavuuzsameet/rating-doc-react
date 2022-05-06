@@ -9,6 +9,7 @@ export const DoctorProvider = ({ children }) => {
 
   useEffect(() => {
     getDoctorsList();
+    postDoctorsList();
   }, []);
 
   const getDoctorsList = async () => {
@@ -26,7 +27,28 @@ export const DoctorProvider = ({ children }) => {
       console.log(e);
     }
   };
+  const postDoctorsList = async () => {
+    const data = { id: 1, rating: 3, voters: 1 };
+    const REST_API_URL = "http://127.0.0.1:8000/core/doctor";
+    const requestOptions = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: data,
+    };
 
+    try {
+      setFetchDoctorIsLoading(true);
+      await axios.post(REST_API_URL, requestOptions).then((response) => {
+        if (response) {
+          console.log(response, "deneme");
+        }
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const saveDoctorStarRating = async (doctorId, ratedValue) => {
     const findUserById = doctorRating.find((item) => item.id === doctorId);
     if (findUserById) {
