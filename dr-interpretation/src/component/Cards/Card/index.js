@@ -39,12 +39,7 @@ export const Card = ({ data }) => {
               saveRatedByDoctor={saveDoctorStarRating}
               getRatingByDoctor={getRatingByDoctor}
             />
-            {/* <Star
-              doctorId={Number(_id)}
-              saveRatedByDoctor={saveDoctorStarRating}
-              getRatingByDoctor={getRatingByDoctor}
-            /> */}
-            <button>
+            <button className="btn-light">
               <Link to={`/detail/${id}`}>READ MORE</Link>
             </button>
           </div>

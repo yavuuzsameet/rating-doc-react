@@ -3,15 +3,20 @@ import { useParams } from "react-router-dom";
 import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
 import { Star } from "../../component/Star";
+import { FaStar } from "react-icons/fa";
 
 function DetailPage() {
   const { _id } = useParams();
-  const { doctors, getRatingByDoctor, saveDoctorStarRating } = useDoctor();
+  const { doctors, getRatingByDoctor, saveDoctorStarRating, doctorData } =
+    useDoctor();
+
   const doctorInfo = doctors[_id - 1];
+
+  // console.log(doctorData.rating);
+
   return (
     <div className="doctorDetail">
       <div className="container">
-        {/* <h1>Detail Page {_id}</h1> */}
         <div className="sub-container">
           <center>
             <img
@@ -20,17 +25,21 @@ function DetailPage() {
             />
           </center>
           <div className="star">
-            {/* <Star
-              doctorId={_id}
-              saveRatedByDoctor={saveDoctorStarRating}
-              getRatingByDoctor={getRatingByDoctor}
-            /> */}
             <Star
               doctorId={Number(_id)}
               saveRatedByDoctor={saveDoctorStarRating}
               getRatingByDoctor={getRatingByDoctor}
             />
           </div>
+          <div className="rating-info">
+            <FaStar className="star-icon" />
+            <h2>
+              {Math.floor(doctorData.rating)}
+              <small> /5</small>
+            </h2>
+          </div>
+          <span>Voters: {doctorData.voters}</span>
+
           <h1>ABOUT</h1>
           <p>
             <span>Name:</span> {doctorInfo.name}
@@ -41,7 +50,6 @@ function DetailPage() {
         </div>
 
         <div className="sub-container">
-          {" "}
           <h1>SUMMARY</h1>
           <p style={{ padding: "0 50px" }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -73,7 +81,7 @@ function DetailPage() {
         </div>
         <br />
       </div>
-      <button>
+      <button className="btn">
         <Link to={"/home"}>All Doctors</Link>
       </button>
     </div>

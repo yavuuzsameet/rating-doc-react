@@ -10,11 +10,12 @@ export const HomePage = () => {
   const { doctors, fetchDoctorIsLoading } = useDoctor();
   const [textInput, setTextInput] = useState("");
 
-
   const doctorListByFilter = useMemo(() => {
-        return doctors.filter(item => item.name.toLowerCase().includes(textInput.toLowerCase()))
-  },[doctors,textInput])
-  
+    return doctors.filter((item) =>
+      item.name.toLowerCase().includes(textInput.toLowerCase())
+    );
+  }, [doctors, textInput]);
+
   return (
     <>
       {fetchDoctorIsLoading && <div>Loading...</div>}
@@ -22,10 +23,10 @@ export const HomePage = () => {
         <CustomHeader title="DOCTOR INTERPRETATION APP" />
         <CustomSearch setTextInput={setTextInput} />
       </nav>
-        <Cards data={doctorListByFilter} />
-        <button>
+      <Cards data={doctorListByFilter} />
+      <button className="btn">
         <Link to={"/"}>Logout</Link>
       </button>
     </>
   );
-}
+};

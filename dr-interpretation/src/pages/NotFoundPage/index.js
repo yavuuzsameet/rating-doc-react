@@ -1,10 +1,17 @@
 import React from "react";
-
+import "./NotFound.scss";
 const NotFound = () => {
-    return (
-        <h2>Page not found.</h2>
-    );
-}
+  return (
+    <section class="error-container">
+      <span>
+        <span>4</span>
+      </span>
+      <span>0</span>
+      <span>
+        <span>4</span>
+      </span>
+    </section>
+  );
+};
 
 export default NotFound;
-

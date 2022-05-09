@@ -11,11 +11,10 @@ function App() {
     <DoctorProvider>
       <BrowserRouter>
         <Routes>
-
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<HomePage />} />
           <Route path="/detail/:_id" element={<DoctorDetailPage />} />
-          <Route path="/notFound" element={<NotFound />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </DoctorProvider>

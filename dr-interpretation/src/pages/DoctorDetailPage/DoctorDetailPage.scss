@@ -3,29 +3,6 @@
   margin: 125px auto 0;
   letter-spacing: 0.04rem;
 
-  button {
-    position: absolute;
-    top: 35px;
-    right: 35px;
-    background-color: #fff;
-    border: none;
-    padding: 10px 30px;
-    cursor: pointer;
-    font-size: 18px;
-    box-shadow: 0 1px 5px #706f6f;
-    border-radius: 5px;
-    transition: 1000ms;
-    a {
-      text-decoration: none;
-      transition: 1000ms;
-      color: #c8aa8c;
-    }
-    &:hover {
-      transform: scale(0.9);
-      box-shadow: 0 5px 10px #706f6f;
-      background-color: #000;
-    }
-  }
   .container {
     width: 100%;
     margin: auto;
@@ -60,6 +37,17 @@
     margin-top: 80px;
     transform: scale(1.5);
   }
+  .rating-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .star-icon {
+      color: rgb(255, 180, 0);
+      font-size: 24px;
+      margin-right: 5px;
+    }
+  }
+
   h1 {
     color: #c8aa8c;
     font-size: 25px;

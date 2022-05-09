@@ -6,10 +6,13 @@ export const DoctorProvider = ({ children }) => {
   const [doctors, setDoctors] = useState([]);
   const [fetchDoctorIsLoading, setFetchDoctorIsLoading] = useState(false);
   const [doctorRating, setDoctorRating] = useState([]);
+  const [doctorData, setDoctorData] = useState();
 
   useEffect(() => {
     getDoctorsList();
     postDoctorsList();
+    getRatingValue();
+    saveDoctorStarRating();
   }, []);
 
   const getDoctorsList = async () => {
@@ -24,33 +27,63 @@ export const DoctorProvider = ({ children }) => {
         }
       );
     } catch (e) {
-      console.log(e);
+      return e;
     }
   };
   const postDoctorsList = async () => {
-    const data = { id: 1, rating: 3, voters: 1 };
+    const data = { id: 1, point: 3 };
     const REST_API_URL = "http://127.0.0.1:8000/core/doctor";
-    const requestOptions = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: data,
-    };
 
     try {
       setFetchDoctorIsLoading(true);
-      await axios.post(REST_API_URL, requestOptions).then((response) => {
+      await axios.post(REST_API_URL, data).then((response) => {
         if (response) {
-          console.log(response, "deneme");
         }
       });
     } catch (e) {
-      console.log(e);
+      return e;
     }
   };
+
+  const getRatingValue = async () => {
+    try {
+      await axios("http://127.0.0.1:8000/core/doctor").then((response) => {
+        const tempData = [];
+
+        const { data } = response;
+
+        if (data) {
+          data.forEach((item) => {
+            tempData.push({
+              id: item.id,
+              ratedValue: Math.floor(item.rating),
+            });
+          });
+
+          setDoctorRating(tempData);
+        }
+      });
+    } catch (e) {
+      return e;
+    }
+  };
+
   const saveDoctorStarRating = async (doctorId, ratedValue) => {
     const findUserById = doctorRating.find((item) => item.id === doctorId);
+
+    if (findUserById) {
+      axios
+        .post("http://127.0.0.1:8000/core/doctor", {
+          id: doctorId,
+          point: ratedValue,
+        })
+        .then((response) => {
+          console.log(response);
+          setDoctorData(response.data);
+          console.log(doctorData);
+        });
+    }
+
     if (findUserById) {
       findUserById.ratedValue = ratedValue;
     } else {
@@ -71,6 +104,7 @@ export const DoctorProvider = ({ children }) => {
     saveDoctorStarRating,
     getRatingByDoctor,
     doctorRating,
+    doctorData,
   };
   return (
     <DoctorContext.Provider value={values}>{children}</DoctorContext.Provider>
