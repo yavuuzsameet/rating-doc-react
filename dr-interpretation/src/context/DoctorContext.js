@@ -6,13 +6,10 @@ export const DoctorProvider = ({ children }) => {
   const [doctors, setDoctors] = useState([]);
   const [fetchDoctorIsLoading, setFetchDoctorIsLoading] = useState(false);
   const [doctorRating, setDoctorRating] = useState([]);
-  const [doctorData, setDoctorData] = useState();
-
   useEffect(() => {
     getDoctorsList();
     postDoctorsList();
     getRatingValue();
-    saveDoctorStarRating();
   }, []);
 
   const getDoctorsList = async () => {
@@ -59,7 +56,6 @@ export const DoctorProvider = ({ children }) => {
               ratedValue: Math.floor(item.rating),
             });
           });
-
           setDoctorRating(tempData);
         }
       });
@@ -79,8 +75,6 @@ export const DoctorProvider = ({ children }) => {
         })
         .then((response) => {
           console.log(response);
-          setDoctorData(response.data);
-          console.log(doctorData);
         });
     }
 
@@ -104,7 +98,6 @@ export const DoctorProvider = ({ children }) => {
     saveDoctorStarRating,
     getRatingByDoctor,
     doctorRating,
-    doctorData,
   };
   return (
     <DoctorContext.Provider value={values}>{children}</DoctorContext.Provider>

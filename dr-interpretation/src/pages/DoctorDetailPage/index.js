@@ -3,16 +3,13 @@ import { useParams } from "react-router-dom";
 import { useDoctor } from "../../context/DoctorContext";
 import { Link } from "react-router-dom";
 import { Star } from "../../component/Star";
-import { FaStar } from "react-icons/fa";
+// import { FaStar } from "react-icons/fa";
 
 function DetailPage() {
   const { _id } = useParams();
-  const { doctors, getRatingByDoctor, saveDoctorStarRating, doctorData } =
-    useDoctor();
+  const { doctors, getRatingByDoctor, saveDoctorStarRating } = useDoctor();
 
   const doctorInfo = doctors[_id - 1];
-
-  // console.log(doctorData.rating);
 
   return (
     <div className="doctorDetail">
@@ -31,14 +28,14 @@ function DetailPage() {
               getRatingByDoctor={getRatingByDoctor}
             />
           </div>
-          <div className="rating-info">
+          {/* <div className="rating-info">
             <FaStar className="star-icon" />
             <h2>
               {Math.floor(doctorData.rating)}
               <small> /5</small>
             </h2>
           </div>
-          <span>Voters: {doctorData.voters}</span>
+          <span>Voters: {doctorData.voters}</span> */}
 
           <h1>ABOUT</h1>
           <p>
