@@ -2,7 +2,7 @@
 Yazılım Köyü ve Arçelik şirketinin iş birliği ile düzenlenen Arçelik React Bootcamp'nin bitirme projesi olarak Doctor Rating adlı uygulamayı geliştirdik. Bu uygulamada hastalar giriş yaparak doktorları puanlayabilir.Aynı zamanda doktorlar hakkında detaylı bilgi edinebilir.
 Bu uygulamanın frontend tarafı React ile backend tarafı ise Django ile yazılmıştır.
 
-## Kurulum
+## Setup
 
 ```bash
   cd dr-interpretation
@@ -17,18 +17,18 @@ Bu uygulamanın frontend tarafı React ile backend tarafı ise Django ile yazıl
   python manage.py runserver
 ```
 
-## Kullanılan Teknolojiler
+## Tech Stack
 <p align="left"> <a href="https://www.djangoproject.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> <a href="https://postman.com" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="postman" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> </p>
 <br />
 
-## UML Diyagramı
+## UML Diagram
  <img src="https://user-images.githubusercontent.com/79422043/167481311-d6680957-750d-4919-a88d-f7849234324e.jpeg"/>
 
- ## Postman Testi
+ ## Postman Test
  <img src="https://user-images.githubusercontent.com/79422043/167481661-a4ae232d-f3c6-454f-8e56-d0c780385589.jpeg" width=50% height=50% />
  <img src="https://user-images.githubusercontent.com/79422043/167481690-39f6ed77-f9b1-4dad-9dbd-b445d13b1350.jpeg" width=50% height=50% />
  
- ## Sayfalar
+ ## Pages
  <img src="https://user-images.githubusercontent.com/79422043/167482564-461ea904-2948-4bc9-8d35-6000d2e43de9.png" width=65% height=65% />
  <img src="https://user-images.githubusercontent.com/79422043/167481955-402d5cb6-08fa-46a2-895b-a9d772f9a3fd.PNG" width=65% height=65% />
  
